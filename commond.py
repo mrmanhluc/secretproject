@@ -7,7 +7,7 @@ DESTINATION = 'SGN'
 LOCALE = 'en-US'
 PASSENGER = 1
 FROM_DATE = '12-01-2018'
-TO_DATE = '12-30-2018'
+TO_DATE = '12-10-2018'
 
 # Variance used to selenium function
 CURRENT_TIME = datetime.datetime.now()

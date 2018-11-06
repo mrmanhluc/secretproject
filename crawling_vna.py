@@ -111,7 +111,7 @@ def crawling_data():
 
 def __main__():
     crawling_data()
-    pd.DataFrane(collected_data).to_csv(csv_file_name())
+    pd.DataFrame(collected_data).to_csv(csv_file_name(), index=False)
 
 
 __main__()
