@@ -11,5 +11,5 @@ TO_DATE = '12-10-2018'
 
 # Variance used to selenium function
 CURRENT_TIME = datetime.datetime.now()
-CHROME_DRIVER = r'D:\02_Python\18_PullingData_HTML\chormdriver\chromedriver.exe'
+CHROME_DRIVER = 'chromedriver'
 WAITING_TIME = 20
