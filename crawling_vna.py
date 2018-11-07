@@ -4,16 +4,16 @@ import pandas as pd
 import logging
 import commond
 
-
+# general a arange date
 def general_date(from_date, to_date):
     return [date.strftime('%m-%d-%Y') for date in pd.date_range(from_date, to_date)]
 
-
+# general csv file name. Like 20183011_1830.csv
 def csv_file_name():
     return str(commond.CURRENT_TIME.year) + str(commond.CURRENT_TIME.month) + str(commond.CURRENT_TIME.day) + \
            str('_') + str(commond.CURRENT_TIME.hour) + str(commond.CURRENT_TIME.minute) + str('.csv')
 
-
+# insert a values into array
 def insert(col_name, value):
     collected_data[col_name].append(value)
 
@@ -34,6 +34,7 @@ collected_data = {
 
 class Util:
     def __init__(self):
+        # Set varience for url link. Define in commond.py
         self.current = commond.CURRENT_TIME
         self.journey_type = commond.JOURNEY_TYPE
         self.locale = commond.LOCALE
@@ -46,10 +47,12 @@ class Util:
     def get_urls(self):
         date_range = general_date(self.from_date, self.to_date)
         urls = []
+        # General n urls. Each url has same parameters except date
         for search_date in date_range:
             urls.append(self.request_url(search_date))
         return urls
 
+    # join all parameter and general complete URL to request
     def request_url(self, departure_date):
         url_variances = {
             'domain': 'https://fly.vietnamairlines.com/dx/VNDX/#/flight-selection?',
@@ -79,7 +82,7 @@ def crawling_data():
             # Step 1. Get main price table
             flights_main = driver.find_element_by_class_name('flights-table')
 
-            # Step 2. Get children
+            # Step 2. Get each children from main table has class name 'dxp-flight'
             flights = flights_main.find_elements_by_class_name('dxp-flight')
 
             for flight in flights:
