@@ -13,11 +13,11 @@ def csv_file_name():
     return str(commond.CURRENT_TIME.year) + str(commond.CURRENT_TIME.month) + str(commond.CURRENT_TIME.day) + \
            str('_') + str(commond.CURRENT_TIME.hour) + str(commond.CURRENT_TIME.minute) + str('.csv')
 
-# insert a values into array
+# insert a values into collected_date
 def insert(col_name, value):
     collected_data[col_name].append(value)
 
-
+# to save which data colected.
 collected_data = {
         'journeyType': [],
         'departure': [],
@@ -33,6 +33,12 @@ collected_data = {
 
 
 class Util:
+    '''
+        Input : Variable defined in commond file.
+        Output : List of urls, each url included diffirence date.
+            Ex : [vietnamairline.com?date=20180101, vietnamairline.com?date=20180102...]
+    '''
+    # Step 1. Define variable and saved into self
     def __init__(self):
         # Set varience for url link. Define in commond.py
         self.current = commond.CURRENT_TIME
@@ -44,6 +50,7 @@ class Util:
         self.from_date = commond.FROM_DATE
         self.to_date = commond.TO_DATE
 
+    # Step 2. Create a list of urls with diffirence date
     def get_urls(self):
         date_range = general_date(self.from_date, self.to_date)
         urls = []
@@ -52,11 +59,11 @@ class Util:
             urls.append(self.request_url(search_date))
         return urls
 
-    # join all parameter and general complete URL to request
+    # Step 3. Join all parameter and general complete URL to request
     def request_url(self, departure_date):
         url_variances = {
             'domain': 'https://fly.vietnamairlines.com/dx/VNDX/#/flight-selection?',
-            'variances': {
+            'flight_info': {
                 'journeyType': self.journey_type,
                 'locale': self.locale,
                 'origin': self.origin,
@@ -67,7 +74,7 @@ class Util:
                 'date': departure_date,
             }
         }
-        return url_variances['domain'] + urllib.parse.urlencode(url_variances['variances'])
+        return url_variances['domain'] + urllib.parse.urlencode(url_variances['flight_info'])
 
 
 def crawling_data():
