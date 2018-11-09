@@ -1,6 +1,3 @@
-# secretproject
-Code chính em để trong file crawling_vna.py
+# Flight-price-forecaster
 
-Anh có muốn chạy thử thì clone về rồi chạy : python crawling_vna.py
-
-Nhớ chỉnh lại đường dẫn tới file : chromedriver.exe
+Tool for crawling flight price from ticket websites and building price prediction models.
