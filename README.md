@@ -2,7 +2,7 @@
 
 Tool for crawling flight price from ticket websites and building price prediction models.
 
-# CODING RULES:
+## CODING RULES:
 
 ### Cách đặt tên biến:
 * Tên biến dùng chữ cái viết thường
@@ -14,6 +14,6 @@ Tool for crawling flight price from ticket websites and building price predictio
 * Các từ liền nhau
 * Luôn bắt đầu bởi các động từ
 * Hàm private bắt đầu bằng dấu gạch dưới
-* Ví dụ: _setRequestDate, _getFlightPrice
+* Ví dụ: setRequestDate, _generateFileName
 
 (còn tiếp)
