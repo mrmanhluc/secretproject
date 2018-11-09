@@ -1,0 +1,35 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException
+# import os, time, datetime, re, util, sys
+import selenium.webdriver.chrome.service as service
+
+class Sample():
+    def __init__(self):
+        self.aservice = service.Service('/usr/local/bin/chromedriver')
+        self.aservice.start()
+        capabilities = {'chrome.binary': '/usr/bin/google-chrome-stable', "chromeOptions": {"args": ['--no-sandbox']}}
+        self.driver = webdriver.Remote(self.aservice.service_url, capabilities)
+        self.driver.implicitly_wait(3)
+        self.base_url = "https://vnexpress.net"
+
+    def __del__(self):
+        self.driver.close()
+
+    def sample(self):
+        driver = self.driver
+
+        try:
+            driver.get(self.base_url)
+            result = driver.find_element_by_id("myvne_taskbar")
+            print(result.text)
+        except:
+            print("Error")
+        finally:
+            print("done")
+
+sample = Sample()
+sample.sample()
