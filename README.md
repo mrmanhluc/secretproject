@@ -9,11 +9,11 @@ Logic thay đổi 1 chút.
   Không sử dụng TO_DATE nữa mà dùng request days. Là số ngày tiếp theo mình muốn request
   
  - pull_request.py
- 
-  Thay vì general ra n url tương ứng với n ngày. Em đi kiếm button ngày kiếm theo rồi xử lý sự kiện click để nó tự động next qua ngày khác.
+
+  Thay đổi logic để request tới ngày khác. Thay vì tạo ra nhiều url, em tìm button ngày kế và thêm sự kiện click_next() cho nó
   
  - Cần cải thiện sau
- 
+
   Xóa pandas và thay bằng function đơn giản hơn để export data nhanh hơn
 
 ## Environment
