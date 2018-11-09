@@ -21,3 +21,7 @@ Logic thay đổi 1 chút.
 - Chạy trên centos, sau khi cài xong như trong hướng dẫn. chạy câu lệnh như bên dưới : 
   
   export DISPLAY=localhost:1.0; python3.6 pull_vnairline.py
+
+## Document
+- Tài liệu hướng dẫn cài Selenium trên Centos 7, hiện tại em mới chỉ cài ở máy ảo của em
+- Tài liệu hướng dẫn cài python 2.7, anh có cài nhớ cài 3.6 nha, để sửa lại tài liệu sau
