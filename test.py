@@ -11,7 +11,7 @@ import platform
 class Sample():
     def __init__(self):
         os_name = platform.system()
-        driver_address = 'chromedriver.exe' if os_name == 'Windows' else '/usr/local/bin/chromedriver'
+        driver_address = 'chromedriver.exe' if os_name == 'Windows' else 'chromedriver'
         self.aservice = service.Service(driver_address)
         self.aservice.start()
         capabilities = {'chrome.binary': '/usr/bin/google-chrome-stable', "chromeOptions": {"args": ['--no-sandbox']}}
