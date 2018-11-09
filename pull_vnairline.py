@@ -30,14 +30,11 @@ class WebDriver:
         }
 
         self.driver = self._setup
-        # print('Waiting time : ', food.WAITING_TIME)
         self.driver.implicitly_wait(food.WAITING_TIME)
-        #
         url = self._generate_url(food.FROM_DATE)
-
         self.driver.get(url)
 
-    # Can run both environment Linux and Windows
+    # used to run both environment Linux and Windows
     @property
     def _setup(self):
         os_name = platform.system()
