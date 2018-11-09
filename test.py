@@ -6,10 +6,13 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 # import os, time, datetime, re, util, sys
 import selenium.webdriver.chrome.service as service
+import platform
 
 class Sample():
     def __init__(self):
-        self.aservice = service.Service('/usr/local/bin/chromedriver')
+        os_name = platform.system()
+        driver_address = 'chromedriver.exe' if os_name == 'Windows' else '/usr/local/bin/chromedriver'
+        self.aservice = service.Service(driver_address)
         self.aservice.start()
         capabilities = {'chrome.binary': '/usr/bin/google-chrome-stable', "chromeOptions": {"args": ['--no-sandbox']}}
         self.driver = webdriver.Remote(self.aservice.service_url, capabilities)
